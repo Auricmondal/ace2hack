@@ -15,10 +15,11 @@ const ErrorState =({
     },[error]);
 
     return(
-        <EmptyState
-            title="Uh Oh!"
-            subtitle="Something went wrong"
-        />
+        // <EmptyState
+        //     title="Uh Oh!"
+        //     subtitle="Something went wrong"
+        // />
+        <div></div>
     )
 }
 
