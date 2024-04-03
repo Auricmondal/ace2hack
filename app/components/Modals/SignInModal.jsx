@@ -16,7 +16,7 @@ const SignInModal = () => {
         onClose={LoginModal.onClose}
         body={body}
     />
-  )
+  ) 
 }
 
 export default SignInModal
