@@ -3,7 +3,7 @@
 import React from 'react'
 import useLoginModal from '@/app/hooks/useLoginModal';
 
-const LoginButton= React.FC = ({children,className}) => {
+const LoginButton = ({children,className}) => {
   const LoginModal=useLoginModal();
 
   const handleOnClick= ()=>{

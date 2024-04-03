@@ -3,7 +3,7 @@
 import useSignupModal from '@/app/hooks/useSignupModal';
 import React from 'react'
 
-const SignupButton= React.FC = ({children, className}) => {
+const SignupButton = ({children, className}) => {
 
   const signupModal=useSignupModal();
 

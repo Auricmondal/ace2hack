@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 
-const Modal=React.FC = ({
+const Modal = ({
     isOpen,
     onClose,
     body
