@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -16,13 +16,7 @@ const Modal = ({
     }, [isOpen])
 
 
-    const handleClose=useCallback(()=>{
-        
-        setShowModal(false)
-        setTimeout(() => {
-            onClose();
-        }, 300);
-    },[onClose])
+    
 
     if(!isOpen){
         return null
@@ -46,7 +40,7 @@ const Modal = ({
        
     py-8 
     relative`} >
-            <span className='absolute right-12 top-12 z-[60] cursor-pointer' onClick={handleClose}>
+            <span className='absolute right-12 top-12 z-[60] cursor-pointer' onClick={()=> onClose()}>
                 <CloseIcon/>
             </span>
             {body}
