@@ -45,14 +45,14 @@ const Navbar = () => {
   )
 
 const navloggedin =(
-  <div className='flex justify-between items-center gap-1'>
+  user&& (<div className='flex justify-between items-center gap-2'>
     <h5 className='text-sm font-medium'>Hello, {user.fullName}</h5>
     <Avatar>
   <AvatarImage src={user.hasImage?user.imageUrl:''} />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>
 
-  </div>
+  </div>)
 )
 
 
