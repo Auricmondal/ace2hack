@@ -49,7 +49,7 @@ if(!OpenSidemenu.isOpen){
 }
 
   return (
-    <div className="fixed top-0 h-full w-full bg-black bg-opacity-20 ">
+    <div className="fixed top-0 h-full w-full bg-black bg-opacity-20 z-50">
     <div className="w-full md:max-w-[500px] h-full bg-white fixed top-0 shadow-md">
       <div className="px-4 py-16 flex flex-col h-full justify-between">
         <div className="p-2 bg-white shadow-md absolute right-4 top-4 rounded-md cursor-pointer" onClick={handlesidemenuOpen}>

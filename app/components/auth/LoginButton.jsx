@@ -1,20 +1,14 @@
 'use client'
 
 import React from 'react'
-import useLoginModal from '@/app/hooks/useLoginModal';
+import { useRouter } from 'next/navigation';
 
 const LoginButton = ({children,className}) => {
-  const LoginModal=useLoginModal();
+  const Router = useRouter();
 
-  const handleOnClick= ()=>{
-    if(LoginModal.isOpen)
-    LoginModal.onClose()
-    if(!LoginModal.isOpen)
-    LoginModal.onOpen()
-  }
 
   return (
-    <div onClick={handleOnClick} className={className} >{children}</div>
+    <div onClick={()=>Router.push('/sign-in')} className={className} >{children}</div>
   )
 }
 
