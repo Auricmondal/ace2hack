@@ -1,52 +1,68 @@
 'use client'
-import React, {useEffect, useState } from 'react'
-import CloseIcon from '@mui/icons-material/Close';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from '../ui/button';
+import { Label } from '@/components/ui/label';
+import { Input } from "@/components/ui/input";
 
 
 
 const Modal = ({
-    isOpen,
-    onClose,
-    body
+  buttonAction,
+  dialogTitle,
+  dialogDescription,
+  body,
+  primaryModalActionLabel
 }) => {
 
-    const [showModal, setShowModal] = useState(isOpen)
-    useEffect(() => {
-      setShowModal(isOpen)
-    }, [isOpen])
-
-
     
-
-    if(!isOpen){
-        return null
-    }
     
   return (
-    <div 
-    className={`
-    z-50 
-    justify-center 
-    flex 
-    overflow-x-hidden 
-    overflow-y-auto 
-    fixed 
-    inset-x-0
-    bottom-0
-    ${showModal? 'translate-y-0':'translate-y-full'}
-    ${showModal? 'opacity-100':'opacity-0'}
-    `}>
-        <div className={` 
-       
-    py-8 
-    relative`} >
-            <span className='absolute right-12 top-12 z-[60] cursor-pointer' onClick={()=> onClose()}>
-                <CloseIcon/>
-            </span>
-            {body}
-            
+     <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Edit Profile</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Name
+            </Label>
+            <Input
+              id="name"
+              defaultValue="Pedro Duarte"
+              className="col-span-3"
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Username
+            </Label>
+            <Input
+              id="username"
+              defaultValue="@peduarte"
+              className="col-span-3"
+            />
+          </div>
         </div>
-    </div>
+        <DialogFooter>
+          <Button type="submit">Save changes</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   )
 }
 

@@ -7,8 +7,9 @@ import LoginButton from '../auth/LoginButton';
 import SignupButton from '../auth/SignupButton';
 import useSideMenuModal from '@/app/hooks/useSideMenuModal';
 import { useRouter } from 'next/navigation';
-import { useAuth, useUser } from '@clerk/nextjs';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { UserButton, useAuth, useUser } from '@clerk/nextjs';
+
+
 
 
 
@@ -47,11 +48,11 @@ const Navbar = () => {
 const navloggedin =(
   user&& (<div className='flex justify-between items-center gap-2'>
     <h5 className='text-sm font-medium'>Hello, {user.fullName}</h5>
-    <Avatar>
+    {/* <Avatar>
   <AvatarImage src={user.hasImage?user.imageUrl:''} />
   <AvatarFallback>CN</AvatarFallback>
-</Avatar>
-
+</Avatar> */}
+  <UserButton/>
   </div>)
 )
 
