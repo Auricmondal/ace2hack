@@ -1,12 +1,18 @@
 
 import Image from "next/image";
+import Section from "./components/sections/Section";
+import Banner from "./components/Banner";
+import SubjectsSection from "./components/sections/SubjectsSection";
+import WhyUsSection from "./components/sections/WhyUsSection";
+import Footer from "./components/Footer";
 
-export default function Home() {
+export default async function  Home() {
   return (
     <main >
-      <h1>Hello hackers</h1>
-
-    
+      <Banner/>
+      <SubjectsSection/>
+      <WhyUsSection/>
+      <Footer/>
     </main>
   );
 }
