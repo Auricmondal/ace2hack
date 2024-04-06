@@ -8,8 +8,8 @@ import SideMenu from "./components/Navbar/SideMenu";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Aloo",
-  description: "For hackathon",
+  title: "LearnAtEase",
+  description: "Learning platform",
 };
 
 export default function RootLayout({ children }) {

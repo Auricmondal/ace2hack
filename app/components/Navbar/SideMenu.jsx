@@ -1,15 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { Button } from "../ui/button";
 import LoginButton from "../auth/LoginButton";
 import SignupButton from "../auth/SignupButton";
 import useSideMenuModal from "@/app/hooks/useSideMenuModal";
+import Link from "next/link";
+import { UserButton, useAuth, useUser } from "@clerk/nextjs";
 
 const SideMenu = () => {
-
   const OpenSidemenu = useSideMenuModal();
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { userId, sessionId, getToken } = useAuth();
+  const [loggedIn, setLoggedIn] = useState(userId)
+  const { isLoaded, isSignedIn, user } = useUser();
 
   const handlesidemenuOpen = ()=>{
     if(OpenSidemenu.isOpen)
@@ -34,15 +37,17 @@ const SideMenu = () => {
     </div>
   );
 
-  const navloggedin = (
+  const navloggedin = (user&&(
     <div className="flex items-center gap-4">
-      <div className="h-[64px] w-[64px] bg-slate-500 rounded-full"></div>
-      <div >
-      <h5 className="text-sm font-medium">Hey, John Doe</h5>
-      <Button variant='link' className='p-0'>My Account</Button>
-      </div>
-    </div>
+      <UserButton afterSignOutUrl="/"/>
+      <h5 className='text-lg font-medium'>Hello, {user.fullName}</h5>
+      </div>)
+    
   );
+
+  useEffect(() => {
+    setLoggedIn(userId)
+  }, [userId])
 
 if(!OpenSidemenu.isOpen){
   return null
@@ -59,21 +64,19 @@ if(!OpenSidemenu.isOpen){
           <Button
             className="w-full text-black flex justify-start"
             variant="secondary"
+            onClick={handlesidemenuOpen}
+            asChild
           >
-            Home
+            <Link href="/">Home</Link>
           </Button>
           <Button
             className="w-full text-black flex justify-start"
             variant="secondary"
+            onClick={handlesidemenuOpen}
           >
-            Home
+            <Link href="/dashboard">Learn</Link>
           </Button>
-          <Button
-            className="w-full text-black flex justify-start"
-            variant="secondary"
-          >
-            Home
-          </Button>
+          
         </div>
         <div className="">{!loggedIn ? navLoggedout : navloggedin}</div>
       </div>
