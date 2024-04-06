@@ -66,7 +66,7 @@ const navloggedin =(
             <WidgetsRoundedIcon/>
 
             </div>
-            <p className='font-bold' onClick={()=>Router.push('/')}>LearnAtEase</p>
+            <p className='font-bold' onClick={()=>Router.push('/')}><span className='text-[#1B54DA]'>Edu</span>RAAP</p>
         </div>
         {!loggedIn?navLoggedout:navloggedin}
     </div>

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button } from './ui/button'
 
 const Banner = ({
-  title='Welcome to LearnAtEase',
+  title='Welcome to EduRAAP',
   description='We make learning easy and fun!',
   action='/',
   bgimgUrl=`bg-[url('/assets/bannerimg.jpg')]`,
@@ -24,6 +24,8 @@ const Banner = ({
       bg-center
       flex
       items-center
+      justify-center
+      md:justify-normal
       text-center
       sm:text-left
       pl-4
