@@ -119,6 +119,13 @@ const SideMenu = () => {
           >
             <Link href="/dashboard">Learn</Link>
           </Button>
+          <Button
+            className="w-full text-black flex justify-start"
+            variant="secondary"
+            onClick={handlesidemenuOpen}
+          >
+            <Link href="/videos">Videos</Link>
+          </Button>
           
         </div>
         <div className="">{!loggedIn ? navLoggedout : navloggedin}</div>

@@ -6,7 +6,12 @@ import SubjectsSection from "./components/sections/SubjectsSection";
 import WhyUsSection from "./components/sections/WhyUsSection";
 import Footer from "./components/Footer";
 
+
+
+
+
 export default async function  Home() {
+
   return (
     <main >
       <Banner action="/dashboard"/>
