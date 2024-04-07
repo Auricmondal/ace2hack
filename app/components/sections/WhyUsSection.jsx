@@ -25,14 +25,16 @@ const WhyUsSection = () => {
   ]
   const body = (
     <div className="grid gap-2 grid-rows-1 lg:grid-cols-3 max-w-[1080px] w-[100%] pt-4">
+
       {
-        datas.map((data,index)=>(
+        datas.map((data,index)=>( 
 
        
       <Card className='max-w-[900px] w-full' key={index}>
         <CardHeader>
           <CardTitle className='text-center pb-2'>{data.title}</CardTitle>
           <CardDescription className='line-clamp-4'>{data.desc}</CardDescription>
+
         </CardHeader>
         <CardFooter>
           <Button variant='secondary' className='w-full'>Explore</Button>
