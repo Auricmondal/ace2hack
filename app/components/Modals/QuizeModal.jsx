@@ -7,13 +7,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import axios from "axios";
 
 const QuizeModal =  () => {
-  const [quiz, setQuiz] = useState();
+  const [quiz, setQuiz] = useState([]);
   const url = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
 
-  const data = axios.get(url)
+  axios.get(url)
   .then(function (response) {
       // handle success
-      return response.data
+      setQuiz(response.data.results)
+
     })
     .catch(function (error) {
       // handle error
@@ -24,8 +25,8 @@ const QuizeModal =  () => {
     <div className="flex flex-col gap-y-4">
       
       
-        {data.map((dat)=>(
-          <>
+        {quiz.map((dat)=>(
+          <div>
           <h3>{dat.question}</h3>
         <RadioGroup >
         <div className="flex items-center space-x-2">
@@ -39,7 +40,7 @@ const QuizeModal =  () => {
         </div>
         ))}
         </RadioGroup>
-        </>
+        </div>
         ))}
         
       
@@ -48,11 +49,11 @@ const QuizeModal =  () => {
   return (
     <Modal
       body={body}
-      buttonAction={"/"}
+      buttonAction={"/dashboard"}
       dialogDescription={"This is a multi-choice a question"}
-      dialogTitle={'quiz[0].category'}
+      dialogTitle={'Multiple Choice Question'}
       buttonActionLabel={`Play`}
-      primaryModalActionLabel={"Next"}
+      primaryModalActionLabel={"Submit"}
       key={"title"}
     />
   );

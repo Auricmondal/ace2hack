@@ -11,11 +11,12 @@ import {
 import { Button } from '../ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
 
 
 
 const Modal = ({
-  buttonAction,
+  buttonAction='/',
   buttonActionLabel,
   dialogTitle,
   dialogDescription,
@@ -23,23 +24,26 @@ const Modal = ({
   primaryModalActionLabel
 }) => {
 
-    
+    const Router= useRouter()
     
   return (
-     <Dialog>
+     <Dialog className=' max-h-[90vh] overflow-auto'>
       <DialogTrigger asChild>
         <Button variant="outline" className='w-full'>{buttonActionLabel}</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]  max-h-[90vh] overflow-auto">
         <DialogHeader>
           <DialogTitle>{dialogTitle}</DialogTitle>
           <DialogDescription>
             {dialogDescription}
           </DialogDescription>
         </DialogHeader>
+        
         {body}
+
+      
         <DialogFooter>
-          <Button type="submit">{primaryModalActionLabel}</Button>
+          <Button type="submit" onClick={()=>Router.push(buttonAction)}>{primaryModalActionLabel}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

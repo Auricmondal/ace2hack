@@ -18,7 +18,7 @@ const Myprogress = () => {
   return (
     <Modal
     body={body}
-    buttonAction={'/'}
+    buttonAction={'/dashboard'}
     dialogDescription={'Tracking My Progress'}
     dialogTitle={'My Progress'}
     buttonActionLabel={`My Progress`}

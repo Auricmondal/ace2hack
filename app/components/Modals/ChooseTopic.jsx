@@ -31,7 +31,7 @@ const ChooseTopic = () => {
   return (
     <Modal
     body={body}
-    buttonAction={'/'}
+    buttonAction={'/dashboard'}
     dialogDescription={'Choose a new subject'}
     dialogTitle={'Choose New Subject'}
     buttonActionLabel={`+ Add new`}

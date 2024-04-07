@@ -9,22 +9,11 @@ import Footer from "./components/Footer";
 
 
 
-async function getData() {
-  const res = await fetch('https://opentdb.com/api.php?amount=10&category=19&difficulty=easy&type=multiple')
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
- 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-  return res.json()
-}
+
    
   export default async function Page() {
     
-    const data = await fetch('https://opentdb.com/api.php?amount=10&category=18&difficulty=hard&type=multiple')
-    console.log(data)
+   
   return (
     <main >
       {/* <Banner action="/dashboard"/> */}
