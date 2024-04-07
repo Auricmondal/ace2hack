@@ -4,22 +4,10 @@ import Modal from "./Modal";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-import axios from "axios";
 
-const QuizeModal =  () => {
-  const [quiz, setQuiz] = useState([]);
-  const url = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
 
-  axios.get(url)
-  .then(function (response) {
-      // handle success
-      setQuiz(response.data.results)
+const QuizeModal =  ({quiz}) => {
 
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
 
   const body = (
     <div className="flex flex-col gap-y-4">
@@ -55,6 +43,7 @@ const QuizeModal =  () => {
       buttonActionLabel={`Play`}
       primaryModalActionLabel={"Submit"}
       key={"title"}
+      type={'quiz'}
     />
   );
 };

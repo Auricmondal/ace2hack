@@ -15,7 +15,6 @@ const HeroSection = ({
 }) => {
   const router = useRouter();
 
-  const canvas = document.getElementById('canvas3d');
   return (
     <div
       className={`

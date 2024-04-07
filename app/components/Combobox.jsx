@@ -18,6 +18,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import ChooseTopic from "./Modals/ChooseTopic"
+import { useRouter } from "next/navigation"
+import useSideMenuModal from "../hooks/useSideMenuModal"
 
  
 
@@ -27,6 +29,8 @@ export function Combobox({
 }) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
+  const Router =useRouter()
+  const sideNav= useSideMenuModal();
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -48,25 +52,15 @@ export function Combobox({
           {/* <CommandEmpty>No framework found.</CommandEmpty> */}
           <CommandGroup>
             {datas.map((data) => (
-              // <CommandItem
-              //   key={data.value}
-              //   value={data.value}
-              //   onSelect={(currentValue) => {
-              //     setValue(currentValue === value ? "" : currentValue)
-              //     setOpen(false)
-              //   }}
-              // >
-              //   <Check
-              //     className={cn(
-              //       "mr-2 h-4 w-4",
-              //       value === data.value ? "opacity-100" : "opacity-0"
-              //     )}
-              //   />
-              //   {data.label}
-              // </CommandItem>
+              
 <div className="py-1">
 
-  <Button variant='secondary' className='w-full'>{data.label}</Button>
+  <Button variant='secondary' className='w-full'
+  onClick={()=>{
+      Router.push(`/dashboard/${data.value}`)
+      sideNav.onClose()
+    }}
+      >{data.label}</Button>
 </div>
             ))}
             {useDia&&<ChooseTopic />}

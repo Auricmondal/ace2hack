@@ -5,6 +5,8 @@ import { ClerkProvider } from '@clerk/nextjs'
 import SideMenu from "./components/Navbar/SideMenu";
 import Chatbot from "./components/Chatbot";
 
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +23,8 @@ export default function RootLayout({ children }) {
         <Navbar/>
         <SideMenu/>
         <Chatbot/>
+        <Toaster position="top-center"
+  reverseOrder={false}/>
         {children}
         </body>
     </html>

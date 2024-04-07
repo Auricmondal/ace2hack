@@ -24,6 +24,7 @@ const Myprogress = () => {
     buttonActionLabel={`My Progress`}
     primaryModalActionLabel={'Play More'}
     key={'title'}
+    type={''}
     />
 
 

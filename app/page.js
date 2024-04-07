@@ -16,7 +16,7 @@ import Footer from "./components/Footer";
    
   return (
     <main >
-      {/* <Banner action="/dashboard"/> */}
+      <Banner action="/dashboard"/>
       <div className="bg-[#1B54DA] pb-4">
       <SubjectsSection/>
 

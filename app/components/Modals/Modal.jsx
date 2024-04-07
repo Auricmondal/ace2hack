@@ -9,9 +9,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from '../ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
+import toast from 'react-hot-toast'
 
 
 
@@ -21,10 +20,21 @@ const Modal = ({
   dialogTitle,
   dialogDescription,
   body,
-  primaryModalActionLabel
+  primaryModalActionLabel,
+  type
 }) => {
 
     const Router= useRouter()
+
+    const handleClick =()=>{
+      if(type!=='quiz'){
+        Router.push(buttonAction)
+      }
+      if(type=='quiz'){
+        Router.refresh();
+        toast.success('🥳Successfully Submitted! +20 Points')
+      }
+    }
     
   return (
      <Dialog className=' max-h-[90vh] overflow-auto'>
@@ -43,7 +53,7 @@ const Modal = ({
 
       
         <DialogFooter>
-          <Button type="submit" onClick={()=>Router.push(buttonAction)}>{primaryModalActionLabel}</Button>
+          <Button type="submit" onClick={handleClick}>{primaryModalActionLabel}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

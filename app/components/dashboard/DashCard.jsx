@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardFooter } from '@/components/ui/card'
 import React from 'react'
 import { Button } from '../ui/button'
 import Image from "next/image";
@@ -6,11 +6,7 @@ import QuizeModal from '../Modals/QuizeModal';
 
 const DashCard = ({
     locked=true,
-    level,
-    time,
-    url,
-    title,
-    description,
+    data
 }) => {
   return (
 
@@ -33,7 +29,7 @@ const DashCard = ({
   
     <CardFooter className='p-0'>
       {/* {!locked&&(<Button variant="secondary" >Play</Button>)} */}
-      {!locked&&(<QuizeModal/>)}
+      {!locked&&(<QuizeModal quiz={data}/>)}
     </CardFooter>
     </div>
     <div className="flex gap-1 flex-col absolute top-1 right-1"> 

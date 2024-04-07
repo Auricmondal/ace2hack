@@ -87,33 +87,7 @@ const SideMenu = () => {
     
   );
 
-  const body =(pathname=='/dashboard'?(<div className="fixed top-0 h-full w-full bg-black bg-opacity-20  z-50">
-    <div className=" w-full bg-[#141414] md:max-w-[500px] h-full fixed top-0 shadow-md ">
-      
-      <div className="px-4 py-4 flex flex-col h-full ">
-        <div className="flex justify-between items-center">
-        <p className='font-bold text-white' onClick={()=>Router.push('/')}><span className='text-[#1B54DA]'>Edu</span>Raap</p>
-        
-      <span className="p-2 bg-white shadow-md  top-4 rounded-md cursor-pointer" onClick={handlesidemenuOpen}>
-          <ArrowBackIosNewIcon />
-        </span> 
-        </div>
-        <div className="flex justify-between flex-col h-full">
-        <div className="flex flex-col gap-4">
-        <Combobox
-        datas={datas}
-        useDia={true}
-        />
-        
-        </div>
-        <div className="flex  items-center gap-2">
-        <Myprogress/>
-        </div>
-        </div>
-        </div>
-    </div>
-    </div>
-  ):(<div className="fixed  top-0 h-full w-fullbg-opacity-20 z-50">
+  const body =(pathname=='/'?(<div className="fixed  top-0 h-full w-fullbg-opacity-20 z-50">
     <div className="w-full md:max-w-[500px] h-full bg-[#141414] fixed top-0 shadow-md text-white">
       <div className="px-4 py-16 flex flex-col h-full justify-between">
         <div className="p-2 bg-[#212121] shadow-md absolute right-4 top-4 rounded-md cursor-pointer" onClick={handlesidemenuOpen}>
@@ -151,7 +125,33 @@ const SideMenu = () => {
         
     </div>
     </div>
-  ))
+  ):(<div className="fixed top-0 h-full w-full bg-black bg-opacity-20  z-50">
+  <div className=" w-full bg-[#141414] md:max-w-[500px] h-full fixed top-0 shadow-md ">
+    
+    <div className="px-4 py-4 flex flex-col h-full ">
+      <div className="flex justify-between items-center">
+      <p className='font-bold text-white' onClick={()=>Router.push('/')}><span className='text-[#1B54DA]'>Edu</span>Raap</p>
+      
+    <span className="p-2 bg-white shadow-md  top-4 rounded-md cursor-pointer" onClick={handlesidemenuOpen}>
+        <ArrowBackIosNewIcon />
+      </span> 
+      </div>
+      <div className="flex justify-between flex-col h-full">
+      <div className="flex flex-col gap-4">
+      <Combobox
+      datas={datas}
+      useDia={true}
+      />
+      
+      </div>
+      <div className="flex  items-center gap-2">
+      <Myprogress/>
+      </div>
+      </div>
+      </div>
+  </div>
+  </div>
+))
 
   
 

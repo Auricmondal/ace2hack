@@ -1,12 +1,12 @@
 'use client'
-import { useState } from "react";
-import DashCard from "../components/dashboard/DashCard";
+import DashCard from "@/app/components/dashboard/DashCard";
 import axios from "axios";
+import { useState } from "react";
 
-const page = () => {
 
+export default function ({ params }) {
   const [quiz, setQuiz] = useState([]);
-
+  const [urlLink, seturlLink] = useState('')
   // const categories=[
   //   {
   //     category:'19',
@@ -58,22 +58,17 @@ const page = () => {
     .catch(function (error) {
       console.log(error);
     });
-
   return (
     <div className="bg-[#141414] min-h-[100vh] text-white">
-      <h1 className="text-[45px] text-center font-bold">My Quiz</h1>
+      <h1 className="text-[45px] text-center font-bold capitalize">My Quiz - {params.slug}</h1>
         <div className="p-4 grid grid-col-2 gap-4 lg:grid-cols-5 ">
       {/* Card 1 */}
       
       <DashCard locked={false} data={quiz}/>
-      {/* <DashCard/>
-      <DashCard/>
-      <DashCard/>
-      <DashCard/> */}
     </div>
     </div>
     
   );
 };
 
-export default page;
+
