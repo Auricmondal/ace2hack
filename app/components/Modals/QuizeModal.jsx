@@ -14,7 +14,7 @@ const QuizeModal =  ({quiz}) => {
       
       
         {quiz.map((dat)=>(
-          <div>
+          <div key={dat.question}>
           <h3>{dat.question}</h3>
         <RadioGroup >
         <div className="flex items-center space-x-2">
@@ -22,7 +22,7 @@ const QuizeModal =  ({quiz}) => {
           <Label htmlFor="option-one">{dat.correct_answer}</Label>
         </div>
        { dat.incorrect_answers.map((inc)=>(
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2" key={inc}>
           <RadioGroupItem value={inc} id="option-one" />
           <Label htmlFor="option-one">{inc}</Label>
         </div>

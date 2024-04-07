@@ -3,7 +3,7 @@ import { useState } from "react";
 import DashCard from "../components/dashboard/DashCard";
 import axios from "axios";
 
-const page = () => {
+const Page = () => {
 
   const [quiz, setQuiz] = useState([]);
 
@@ -76,4 +76,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

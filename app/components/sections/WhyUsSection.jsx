@@ -29,7 +29,7 @@ const WhyUsSection = () => {
         datas.map((data,index)=>(
 
        
-      <Card className='max-w-[900px] w-full'>
+      <Card className='max-w-[900px] w-full' key={index}>
         <CardHeader>
           <CardTitle className='text-center pb-2'>{data.title}</CardTitle>
           <CardDescription className='line-clamp-4'>{data.desc}</CardDescription>

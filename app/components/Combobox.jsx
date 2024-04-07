@@ -26,6 +26,7 @@ import useSideMenuModal from "../hooks/useSideMenuModal"
 export function Combobox({
   datas,
   useDia,
+  
 }) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
@@ -33,7 +34,7 @@ export function Combobox({
   const sideNav= useSideMenuModal();
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen} >
       <PopoverTrigger asChild>
         <Button
           variant="outline"
@@ -53,7 +54,7 @@ export function Combobox({
           <CommandGroup>
             {datas.map((data) => (
               
-<div className="py-1">
+<div className="py-1" key={data.value}>
 
   <Button variant='secondary' className='w-full'
   onClick={()=>{

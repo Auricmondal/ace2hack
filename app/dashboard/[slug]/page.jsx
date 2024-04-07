@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 
 
-export default function ({ params }) {
+export default function Page({ params }) {
   const [quiz, setQuiz] = useState([]);
   const [urlLink, seturlLink] = useState('')
   // const categories=[
