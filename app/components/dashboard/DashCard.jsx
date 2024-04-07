@@ -13,31 +13,30 @@ const DashCard = ({
     description,
 }) => {
   return (
-    <div className={`relative ${locked?'select-none':''}`}>
+
+    <div className={`relative ${locked?'select-none':''} max-w-[600px] relative`}>
       {locked && (
-      <span className='text-red-500 absolute z-20 top-[40%] left-[25%]'>Play the previous round to unlock</span>
+      <span className='text-red-500 absolute z-20 top-[40%] text-center left-3
+       max-w-[90%]'>Play the previous round to unlock</span>
     )}
-    <Card className={`flex gap-2 items-center w-full ${locked?'opacity-30':'cursor-pointer'} ` }  >
+    <Card className={` gap-2 items-center w-full ${locked?'opacity-30':'cursor-pointer'} bg-[#212121] border-gray-800 ` }  >
     
       <Image
-      className="h-full w-[30%] rounded-md"
+      className=" w-full rounded-md"
         src={"/assets/bannerimg.jpg"}
         height={100}
         width={100}
         alt="Image"
       />
-    <div className='flex justify-between p-4 w-full'>
+    <div className=' justify-between p-4 w-full '>
     <div >
-    <CardContent className="justify-normal flex flex-col items-start">
-      <CardTitle>Card Title</CardTitle>
-      <CardDescription>Card Description</CardDescription>
-    </CardContent>
-    <CardFooter>
+  
+    <CardFooter className='p-0'>
       {/* {!locked&&(<Button variant="secondary" >Play</Button>)} */}
       {!locked&&(<QuizeModal/>)}
     </CardFooter>
     </div>
-    <div className="flex gap-1 flex-col"> 
+    <div className="flex gap-1 flex-col absolute top-1 right-1"> 
       <Card className='px-4 py-1 flex justify-center items-center border-red-500 text-red-500 text-[12px]'>
             Hard
       </Card>

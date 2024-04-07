@@ -13,7 +13,32 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 const SubjectsSection = () => {
+
+  const  datas = [
+    {
+      value: "computer",
+      label: "Computer",
+      imgUrl:'/assets/comp.png'
+    },
+    {
+      value: "mathematics",
+      label: "Mathematics",
+      imgUrl:'/assets/maths.jpg'
+    },
+    {
+      value: "sports",
+      label: "Sports",
+      imgUrl:'/assets/sports.png'
+    },
+    {
+      value: "history",
+      label: "History",
+      imgUrl:'/assets/history.png'
+    },
+   
+  ]
   const Router=useRouter()
+
     const body=(
         <div className='w-full flex justify-center'>
             <Carousel
@@ -23,8 +48,8 @@ const SubjectsSection = () => {
       className="w-full max-w-[1080px]"
     >
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 max-w-[400px] cursor-pointer">
+        {datas.map((data, index) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 max-w-[400px] cursor-pointer text-white">
             <div className="p-1">
               <Card  onClick={()=>{Router.push('/dashboard')}} >
                 <CardContent className="flex justify-center p-6 ">
@@ -32,15 +57,15 @@ const SubjectsSection = () => {
                  <div >
                   <Image
                   className='h-full w-full rounded-sm'
-                  src='/assets/coding.jpg'
+                  src={data.imgUrl}
                   width={500}
                   height={500}
                   alt='Image of code'
                   />
                  </div>
                  <div>
-                  <h3 className='text-lg pb-1'>Title</h3>
-                  <p className='text-clip overflow-hidden'>Description Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione magni, molestiae corrupti aut obcaecati incidunt vel ab, illum iure blanditiis laboriosam eaque enim voluptatum?</p>
+                  <h3 className='text-lg pb-1 text-center font-bold'>{data.label}</h3>
+                  
                  </div>
                  </div>
                 </CardContent>

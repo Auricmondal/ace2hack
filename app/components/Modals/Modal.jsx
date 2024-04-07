@@ -28,7 +28,7 @@ const Modal = ({
   return (
      <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">{buttonActionLabel}</Button>
+        <Button variant="outline" className='w-full'>{buttonActionLabel}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
