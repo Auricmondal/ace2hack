@@ -9,57 +9,51 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from '../ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
+import toast from 'react-hot-toast'
 
 
 
 const Modal = ({
-  buttonAction,
+  buttonAction='/',
+  buttonActionLabel,
   dialogTitle,
   dialogDescription,
   body,
-  primaryModalActionLabel
+  primaryModalActionLabel,
+  type
 }) => {
 
-    
+    const Router= useRouter()
+
+    const handleClick =()=>{
+      if(type!=='quiz'){
+        Router.push(buttonAction)
+      }
+      if(type=='quiz'){
+        Router.refresh();
+        toast.success('🥳Successfully Submitted! +20 Points')
+      }
+    }
     
   return (
-     <Dialog>
+     <Dialog className=' max-h-[90vh] overflow-auto'>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline" className='w-full'>{buttonActionLabel}</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]  max-h-[90vh] overflow-auto">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>{dialogTitle}</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when youre done.
+            {dialogDescription}
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
-          </div>
-        </div>
+        
+        {body}
+
+      
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit" onClick={handleClick}>{primaryModalActionLabel}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

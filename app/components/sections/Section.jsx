@@ -10,7 +10,7 @@ body,
 key
 }) => {
   return (
-    <div key={key} className='px-4 pt-8 flex justify-center flex-col items-center'>
+    <div key={key} className='px-4 pt-8 flex justify-center flex-col items-center text-white gap-2'>
         <SectionHeader 
             title={title}
             useButton={useButton}

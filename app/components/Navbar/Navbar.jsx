@@ -8,7 +8,7 @@ import SignupButton from '../auth/SignupButton';
 import useSideMenuModal from '@/app/hooks/useSideMenuModal';
 import { useRouter } from 'next/navigation';
 import { UserButton, useAuth, useUser } from '@clerk/nextjs';
-import { useEffect } from 'react';
+import { useEffect } from 'react'; 
 
 
 
@@ -59,16 +59,19 @@ const navloggedin =(
 
 
   return (
-    <nav className='sticky top-0 z-50 bg-white dark:bg-[#212121]'>
-    <div className='flex justify-between items-center px-4 pt-8 pb-4 border-b-2'>
+    <nav className='sticky top-0 z-50 bg-[#141414] text-white'>
+    <div className='flex justify-between items-center px-4 pt-8 pb-4 border-b-2 border-gray-800'>
         <div className='flex justify-between gap-2 cursor-pointer' >
             <div onClick={handlesidemenuOpen}>
             <WidgetsRoundedIcon/>
 
             </div>
-            <p className='font-bold' onClick={()=>Router.push('/')}>LearnAtEase</p>
+            <p className='font-bold' onClick={()=>Router.push('/')}><span className='text-[#1B54DA]'>Edu</span>Raap</p>
         </div>
+        <div>
         {!loggedIn?navLoggedout:navloggedin}
+
+        </div>
     </div>
     </nav>
   )
